@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                new DatePickerDialog.OnDateSetListener() {
                    @Override
                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                       textView.setText(dayOfMonth+"/"+(month+1)+"/"+year);
+                       textView.setText(dayOfMonth+"/"+(month+1)+"/ "+year);
                    }
                },currentYear,currentMonth,currentDay);
        datePickerDialog.show();
