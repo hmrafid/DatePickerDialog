@@ -8,35 +8,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import org.w3c.dom.Text;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
+    private TimePicker timePicker;
     private Button button;
     private TextView textView;
-    private DatePickerDialog datePickerDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         button=findViewById(R.id.buttonId);
-        textView=findViewById(R.id.textId);
-        button.setOnClickListener(this::onClick);
+        textView=findViewById(R.id.textViewId);
+        timePicker=findViewById(R.id.timePickerId);
+        timePicker.setIs24HourView(true);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String time= timePicker.getCurrentHour()+":"+timePicker.getCurrentMinute();
+                textView.setText(time);
+            }
+        });
     }
 
-    @Override
-    public void onClick(View v) {
-        DatePicker datePicker =new DatePicker(this);
-        int currentYear=datePicker.getYear();
-        int currentMonth=datePicker.getMonth()+1;
-        int currentDay=datePicker.getDayOfMonth();
-       datePickerDialog= new DatePickerDialog(this,
-               new DatePickerDialog.OnDateSetListener() {
-                   @Override
-                   public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                       textView.setText(dayOfMonth+"/"+(month+1)+"/ "+year);
-                   }
-               },currentYear,currentMonth,currentDay);
-       datePickerDialog.show();
-    }
 }

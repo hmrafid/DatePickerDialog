@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Date Picker Dailog</string>
-    <string name="button">Show Date</string>
+    <string name="button">Show Time</string>
 </resources>
