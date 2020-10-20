@@ -7,26 +7,19 @@
     android:orientation="vertical"
     android:padding="5dp"
     tools:context=".MainActivity">
-    <TimePicker
-        android:id="@+id/timePickerId"
+    <AnalogClock
+        android:id="@+id/analogClockId"
+        android:background="#0C0C0C"
+        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-    </TimePicker>
-    <Button
-        android:id="@+id/buttonId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    </AnalogClock>
+    <TextClock
+        android:id="@+id/textClockId"
         android:layout_gravity="center_horizontal"
-        android:text="@string/button"
-        android:textSize="20sp">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    </Button>
-    <TextView
-        android:id="@+id/textViewId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20sp">
-    </TextView>
+    </TextClock>
 </LinearLayout>

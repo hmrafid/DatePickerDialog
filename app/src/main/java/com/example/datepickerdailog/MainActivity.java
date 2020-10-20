@@ -5,32 +5,37 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AnalogClock;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
-public class MainActivity extends AppCompatActivity {
-    private TimePicker timePicker;
-    private Button button;
-    private TextView textView;
+import java.time.Clock;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private AnalogClock analogClock;
+    private View clock;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button=findViewById(R.id.buttonId);
-        textView=findViewById(R.id.textViewId);
-        timePicker=findViewById(R.id.timePickerId);
-        timePicker.setIs24HourView(true);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String time= timePicker.getCurrentHour()+":"+timePicker.getCurrentMinute();
-                textView.setText(time);
-            }
-        });
+        analogClock=findViewById(R.id.analogClockId);
+        clock=findViewById(R.id.textClockId);
+        analogClock.setOnClickListener(this::onClick);
+        clock.setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View v) {
+        if(v.getId()==R.id.analogClockId){
+            Toast.makeText(this,"Anal clock",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(this,"digit clock",Toast.LENGTH_SHORT).show();
+        }
+    }
 }
